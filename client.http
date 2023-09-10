@@ -30,6 +30,6 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "Qual a melhor linguagem de programação?",
-  "description": "Estou em dúvida entre Java e NodeJS"
+  "title": "Nova pergunta",
+  "content": "Conteúdo da pergunta"
 }
