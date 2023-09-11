@@ -21,8 +21,16 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     return PrismaQuestionMapper.toDomain(question)
   }
 
-  findBySlug(slug: string): Promise<Question | null> {
-    throw new Error('Method not implemented.')
+  async findBySlug(slug: string): Promise<Question | null> {
+    const question = await this.prisma.question.findUnique({
+      where: { slug },
+    })
+
+    if (!question) {
+      return null
+    }
+
+    return PrismaQuestionMapper.toDomain(question)
   }
 
   findManyRecent(params: PaginationParams): Promise<Question[]> {
